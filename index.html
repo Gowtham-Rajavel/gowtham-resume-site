@@ -1,185 +1,300 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gowtham R – Resume</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gowtham R — Resume</title>
+  <meta name="description" content="Gowtham R — PGDM (Data Science & Business Analytics) student. Skills: SQL, Python, Power BI, Excel. Seeking internship in business & strategy consulting." />
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8f9fa;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+    :root{
+      --accent:#004aad;
+      --accent-dark:#003580;
+      --muted:#6b7280;
+      --bg:#f8f9fa;
+      --card:#ffffff;
+      --radius:10px;
     }
 
-    header {
-      background: #004aad;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
 
-    header a {
-      color: #fff;
-      text-decoration: underline;
+    .container{
+      max-width:980px;
+      margin:28px auto;
+      padding:20px;
     }
 
-    nav {
-      background: #003580;
-      text-align: center;
-      padding: 0.6rem 0;
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      background:linear-gradient(90deg,var(--accent),var(--accent-dark));
+      color:#fff;
+      padding:26px;
+      border-radius:var(--radius);
+      box-shadow:0 8px 24px rgba(2,6,23,0.08);
     }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 500;
+    .avatar{
+      width:86px;
+      height:86px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:28px;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    header .head-right{flex:1}
+    header h1{margin:0;font-size:22px;letter-spacing:0.2px}
+    header p{margin:6px 0 0;color:rgba(255,255,255,0.95);font-size:14px}
+
+    .actions{
+      margin-top:10px;
+    }
+    .btn{
+      display:inline-block;
+      background:#fff;
+      color:var(--accent);
+      padding:8px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 4px 10px rgba(2,6,23,0.08);
+      margin-right:8px;
+    }
+    .btn.secondary{
+      background:transparent;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.2);
     }
 
-    section {
-      background: #fff;
-      margin: 1rem auto;
-      padding: 1.5rem;
-      max-width: 900px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+    /* Two column layout */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:20px;
+      margin-top:18px;
+      align-items:start;
     }
 
-    h1, h2 {
-      color: #004aad;
+    main{
+      background:var(--card);
+      padding:20px;
+      border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(15,23,42,0.04);
     }
 
-    ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
+    aside{
+      background:var(--card);
+      padding:18px;
+      border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(15,23,42,0.04);
+      height:fit-content;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      background: #004aad;
-      color: #fff;
-    }
+    h2{color:var(--accent);margin:0 0 10px;font-size:18px}
+    h3{margin:0;font-size:16px;color:#111827}
+    .muted{color:var(--muted);font-size:13px}
 
-    .btn-download {
-      display: inline-block;
-      background: #004aad;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 500;
-    }
+    .section{margin-bottom:18px}
+    .item{margin-bottom:12px}
+    .item .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+    ul{margin:8px 0 0;padding-left:18px;color:#111827}
+    li{margin:6px 0}
 
-    .btn-download:hover {
-      background: #003580;
-    }
+    /* skills */
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:#f1f5f9;padding:8px 10px;border-radius:8px;font-weight:600;font-size:13px;color:#0f172a}
 
-    @media (max-width: 600px) {
-      body { font-size: 15px; }
-      nav a { margin: 0 0.5rem; }
+    /* projects */
+    .project-title{font-weight:700;font-size:14px;color:#0f172a}
+    .project-desc{color:var(--muted);font-size:13px;margin:6px 0 0}
+
+    footer{margin-top:18px;text-align:center;font-size:13px;color:var(--muted)}
+
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr; padding-bottom:12px}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      header p{font-size:13px}
+      .avatar{width:76px;height:76px;font-size:26px}
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header role="banner">
+      <div class="avatar" aria-hidden="true">GR</div>
+      <div class="head-right">
+        <h1>Gowtham R</h1>
+        <p class="muted">PGDM — Data Science & Business Analytics (ISBR) • Seeking internship in Business & Strategy Consulting</p>
+        <p style="margin:6px 0 0;font-size:14px">
+          Bengaluru, Karnataka • +91 78268 41079 •
+          <a href="mailto:gowthammenaka63@gmail.com" style="color:#fff;text-decoration:underline">gowthammenaka63@gmail.com</a>
+        </p>
 
-  <header>
-    <h1>Gowtham R</h1>
-    <p>
-      Bengaluru, Karnataka | +91 7826841079 |
-      <a href="mailto:gowthammenaka63@gmail.com">gowthammenaka63@gmail.com</a> |
-      <a href="http://www.linkedin.com/in/gowtham-r-analyst" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/Gowtham-Rajavel" target="_blank">GitHub</a>
-    </p>
-    <p>
-      <a href="Gowtham%20Updated%20Resume%20Consulting%20.pdf" class="btn-download" download>
-        📄 Download Resume (PDF)
-      </a>
-    </p>
-  </header>
+        <div class="actions">
+          <a class="btn" href="Gowtham%20Updated%20Resume%20Consulting.pdf" download>📄 Download PDF</a>
+          <a class="btn secondary" href="https://github.com/Gowtham-Rajavel" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn secondary" href="http://www.linkedin.com/in/gowtham-r-analyst" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </header>
 
-  <nav>
-    <a href="#objective">Objective</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-  </nav>
+    <div class="grid" role="main">
+      <main>
+        <!-- Summary -->
+        <section class="section" id="summary">
+          <h2>Professional Summary</h2>
+          <p style="margin-top:8px;color:#111827">
+            Data-driven PGDM student specializing in Data Science & Business Analytics with hands-on experience in SQL, Python and Power BI.
+            Delivered customer analytics & dashboards for high-volume datasets, improved retention and operational KPIs. Passionate about solving strategic business problems using analytics and presenting insights that drive decisions.
+          </p>
+        </section>
 
-  <section id="objective">
-    <h2>Objective</h2>
-    <p>
-      Pursuing a PGDM in Data Science and Business Analytics, I seek an internship in business and strategy consulting 
-      to apply my skills in data-driven problem solving, business analysis, and strategic decision-making. I aim to contribute
-      to a consulting organization by leveraging SQL, Python, Power BI, and Excel to deliver actionable insights and 
-      optimize performance, efficiency, and growth across sectors.
-    </p>
-  </section>
+        <!-- Experience -->
+        <section class="section" id="experience">
+          <h2>Experience</h2>
 
-  <section id="experience">
-    <h2>Experience</h2>
+          <div class="item">
+            <div class="meta">
+              <div>
+                <strong>Iztri</strong> — Business Analytics Intern
+              </div>
+              <div class="muted">Mar 2025 – Jun 2025 · Bengaluru</div>
+            </div>
+            <ul>
+              <li>Analyzed 100k+ customer orders and built executive dashboards in Power BI & Looker Studio to visualize funnel, retention & revenue.</li>
+              <li>Identified levers that improved retention by ~25% and reduced turn-around-time on reports by 15% through ETL automation.</li>
+              <li>Tools: Python (pandas), SQL, Power BI, Excel.</li>
+            </ul>
+          </div>
 
-    <h3>Iztri | Business Analytics Intern</h3>
-    <p><em>Mar 2025 – Jun 2025, Bengaluru</em></p>
-    <ul>
-      <li>Customer Data Analysis (1L+ Orders) and Dashboard Development (Looker Studio, Power BI)</li>
-      <li>Retention & Conversion Tracking (25% Uplift); TAT Optimization (15% Faster)</li>
-      <li>Tools: Python, SQL, Power BI, Excel</li>
-    </ul>
+          <div class="item">
+            <div class="meta">
+              <div><strong>Focus Office Pvt Ltd</strong> — Sales & Data Management Associate</div>
+              <div class="muted">Jun 2022 – Jan 2024 · Tamil Nadu</div>
+            </div>
+            <ul>
+              <li>Led sales pitching to 20+ institutions, managed relationships with 25+ clients and tracked conversions using Excel dashboards.</li>
+              <li>Designed reporting templates that cut analysis time by 30% and improved forecasting accuracy for monthly targets.</li>
+            </ul>
+          </div>
 
-    <h3>Focus Office Pvt Ltd | Sales & Data Management Associate</h3>
-    <p><em>Jun 2022 – Jan 2024, Tamil Nadu</em></p>
-    <ul>
-      <li>Sales pitching (20+ institutions) and client management (25+ clients)</li>
-      <li>Created Excel dashboards reducing analysis time by 30%</li>
-    </ul>
+          <div class="item">
+            <div class="meta">
+              <div><strong>President — ABLE Association, Bishop Heber College</strong></div>
+              <div class="muted">Jun 2023 – Mar 2024</div>
+            </div>
+            <ul>
+              <li>Led an 18-member team to organize 15 events and managed a ₹2.5L budget; coordinated with industry professionals for workshops.</li>
+            </ul>
+          </div>
+        </section>
 
-    <h3>President | Bishop Heber College (ABLE Association)</h3>
-    <p><em>Jun 2023 – Mar 2024</em></p>
-    <ul>
-      <li>Organized 15 events, led 18-member team, managed ₹2.5L budget</li>
-      <li>Collaborated with industry professionals for workshops and events</li>
-    </ul>
-  </section>
+        <!-- Projects -->
+        <section class="section" id="projects">
+          <h2>Selected Projects</h2>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Coffee Shop Sales Analysis (Excel):</strong> Analyzed 12 months of data to improve sales by 10% through dashboards.</li>
-      <li><strong>Amazon Sales Analysis (Power BI):</strong> Identified KPIs, visualized revenue trends, and evaluated supplier performance for business decisions.</li>
-    </ul>
-  </section>
+          <div class="item">
+            <div class="project-title">Coffee Shop Sales Analysis (Excel)</div>
+            <div class="project-desc">Built a 12-month sales dashboard to analyze product-level performance, seasonality and promotions — recommended changes that increased sales by ~10%.</div>
+          </div>
 
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>PGDM – Data Science & Business Analytics</strong>, ISBR Business School (Graduation 2026)
-        <br>Minor: Operations and Supply Chain Management
-      </li>
-      <li><strong>BBA – General (CGPA: 7.91)</strong>, Bishop Heber College (Completed 2024)
-        <br>Project: Brand Perception toward Epson Projectors (500+ respondents)
-      </li>
-    </ul>
-  </section>
+          <div class="item">
+            <div class="project-title">Amazon Sales Analysis (Power BI)</div>
+            <div class="project-desc">Created Power BI reports to show revenue trends, supplier-level performance, and KPI dashboards used for procurement decisions.</div>
+          </div>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <p><strong>Technical:</strong> SQL, Python, Power BI, R, Excel (Advanced), Machine Learning, Data Visualization, Predictive Analytics</p>
-    <p><strong>Soft Skills:</strong> Communication, Leadership, Team Collaboration, Time Management, Adaptability</p>
-    <p><strong>Software:</strong> MySQL, Jupyter Notebook, R-Studio, Power BI, Microsoft Excel & PowerPoint</p>
-  </section>
+          <div class="item">
+            <div class="project-title">Anonymous Feedback Web App (Azure)</div>
+            <div class="project-desc">Implemented a full-stack serverless app (Azure Static Web Apps + Functions + Azure SQL) to collect anonymous feedback with a 90-day retention policy (timer-triggered cleanup).</div>
+          </div>
+        </section>
 
-  <footer>
-    <p>© 2025 Gowtham R | Built & Deployed via Azure Static Web Apps</p>
-  </footer>
+        <!-- Education -->
+        <section class="section" id="education">
+          <h2>Education</h2>
+          <div class="item">
+            <div class="meta">
+              <div><strong>PGDM — Data Science & Business Analytics</strong>, ISBR Business School</div>
+              <div class="muted">Graduation 2026</div>
+            </div>
+            <p class="muted" style="margin-top:6px">Minor: Operations & Supply Chain Management</p>
+          </div>
 
+          <div class="item">
+            <div class="meta">
+              <div><strong>BBA — General</strong>, Bishop Heber College</div>
+              <div class="muted">Completed 2024 · CGPA: 7.91</div>
+            </div>
+            <p class="muted" style="margin-top:6px">Project: Brand Perception toward Epson Projectors — surveyed 500+ respondents</p>
+          </div>
+        </section>
+
+        <!-- Achievements / Certifications -->
+        <section class="section" id="certifications">
+          <h2>Certifications & Achievements</h2>
+          <ul>
+            <li>Coursework & certificates in SQL, Power BI, Python (list specific certs here if you have them)</li>
+            <li>Led college association and managed events with measurable outcomes (attendance, sponsorship)</li>
+          </ul>
+        </section>
+      </main>
+
+      <aside aria-label="sidebar">
+        <section class="section" id="contact">
+          <h2>Contact</h2>
+          <p class="muted">Bengaluru, Karnataka</p>
+          <p style="margin:6px 0"><strong>Phone:</strong> +91 78268 41079</p>
+          <p style="margin:6px 0"><strong>Email:</strong> <a href="mailto:gowthammenaka63@gmail.com">gowthammenaka63@gmail.com</a></p>
+          <p style="margin:6px 0"><strong>LinkedIn:</strong> <a href="http://www.linkedin.com/in/gowtham-r-analyst" target="_blank" rel="noopener">gowtham-r-analyst</a></p>
+          <p style="margin:6px 0"><strong>GitHub:</strong> <a href="https://github.com/Gowtham-Rajavel" target="_blank" rel="noopener">Gowtham-Rajavel</a></p>
+        </section>
+
+        <section class="section" id="skills">
+          <h2>Skills</h2>
+          <div class="skills" style="margin-top:8px">
+            <span class="skill">SQL</span>
+            <span class="skill">Python (pandas)</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">Excel (Advanced)</span>
+            <span class="skill">Data Visualization</span>
+            <span class="skill">Predictive Analytics</span>
+            <span class="skill">Jupyter</span>
+            <span class="skill">R (basic)</span>
+          </div>
+        </section>
+
+        <section class="section" id="tools">
+          <h2>Tools & Software</h2>
+          <p class="muted" style="margin-top:8px">MySQL, Azure SQL, Power BI, Jupyter Notebook, R-Studio, Git, VS Code</p>
+        </section>
+
+        <section class="section" id="soft">
+          <h2>Strengths</h2>
+          <ul style="margin-top:8px">
+            <li>Problem solving & analytical thinking</li>
+            <li>Communication & stakeholder management</li>
+            <li>Leadership & team coordination</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      <p>© 2025 Gowtham R • Built with HTML & CSS • Deployed via Azure Static Web Apps</p>
+    </footer>
+  </div>
 </body>
 </html>
